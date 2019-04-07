@@ -20,7 +20,7 @@ $content = ConvertFrom-Json $result.content
 $dnsIp = $content.data
 
 # Get public ip address there are several websites that can do this.
-$currentIp = Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+$currentIp = Invoke-RestMethod http://ipinfo.io/json | Select-Object -ExpandProperty ip
 
 if ( $currentIp -ne $dnsIp) {
     $Request = @(@{ttl=3600;data=$currentIp; })
