@@ -35,7 +35,7 @@ if [ "$dnsIpa" = "$currentIp" ];
 # if [[ "$dnsIp" =! "$currentIp" ]];
  then
 #       echo "Ips are not equal"
-        request='{"data":"'$currentIp'","ttl":3600}'
+        request='[{"data":"'$currentIp'","ttl":3600}]'
 #       echo $request
         nresult=$(curl -i -s -X PUT \
  -H "$headers" \
